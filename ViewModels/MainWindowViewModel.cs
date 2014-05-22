@@ -66,6 +66,8 @@ namespace ImageComparer.ViewModels
         public MainWindowViewModel()
         {
             this.CompareResultList = new ObservableCollection<ResultItem>();
+            this.AfterPath = @"c:\1";
+            this.BeforePath = @"c:\2";
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             { 
                 CreateTestData();
@@ -76,7 +78,7 @@ namespace ImageComparer.ViewModels
         {
             this.BeforePath = "あいうえお";
             this.AfterPath = "かきくけこ";
-
+            /*
             var image = new BitmapImage();
             image.BeginInit();
             image.CacheOption = BitmapCacheOption.OnLoad;
@@ -88,6 +90,7 @@ namespace ImageComparer.ViewModels
             image.CacheOption = BitmapCacheOption.OnLoad;
             image.EndInit();
             this.AfterImage = image;
+            */
             this.CompareResultList.Add(new ResultItem() { AfterFilePath = "aaa1", BeforeFilePath = "bbb1" });
             this.CompareResultList.Add(new ResultItem() { AfterFilePath = "aaa2", BeforeFilePath = "bbb2" });
         }

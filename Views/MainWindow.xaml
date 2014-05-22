@@ -6,7 +6,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:ImageComparer.Views"
         xmlns:vm="clr-namespace:ImageComparer.ViewModels"
-        Title="MainWindow" Height="1000" Width="1800">
+        Title="MainWindow" Height="1000" Width="1820">
     
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -33,6 +33,7 @@
             <TextBox Width="500" Text="{Binding BeforePath}" />
             <TextBox Width="500" Text="{Binding AfterPath}" />
             <Button Content="比較" Width="100" Command="{Binding CompareCommand}"/>
+            <Slider x:Name="slider1" Width="700" ValueChanged="slider1_ValueChanged" Minimum="1" />
         </StackPanel>
         <ListView ItemsSource="{Binding CompareResultList}" SelectedItem="{Binding CompareResultListSelectedItem}"
                   Height="200">
@@ -44,8 +45,26 @@
             </ListView.View>
         </ListView>
         <StackPanel Orientation="Horizontal">
-            <Image Source="{Binding BeforeImage}" Width="900" Height="900" />
-            <Image Source="{Binding AfterImage}" Width="900" Height="900"/>
+            <ScrollViewer x:Name="sv1" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
+                <Grid Name="grid1" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
+                    <Grid.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="scaleTransform1"/>
+                        </TransformGroup>
+                    </Grid.LayoutTransform>
+                    <Image x:Name="image1" Source="{Binding BeforeImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
+            </ScrollViewer>
+            <ScrollViewer x:Name="sv2" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
+                <Grid Name="grid2" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
+                    <Grid.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="scaleTransform2"/>
+                        </TransformGroup>
+                    </Grid.LayoutTransform>
+                    <Image x:Name="image2" Source="{Binding AfterImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
+            </ScrollViewer>
         </StackPanel>
     </StackPanel>
 </Window>
