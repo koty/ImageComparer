@@ -45,6 +45,11 @@
                     <GridViewColumn Width="900"  Header="後" DisplayMemberBinding="{Binding AfterFilePath}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="diffimgに送る" Command="{Binding SendDiffImgCommand}" Foreground="Black" />
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
         <StackPanel Orientation="Horizontal">
             <ScrollViewer x:Name="sv1" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto"

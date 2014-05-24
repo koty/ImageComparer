@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace ImageComparer.ViewModels
 {
@@ -159,6 +160,34 @@ namespace ImageComparer.ViewModels
                 }
                 else { this.AfterImage = null; }
             }
+        }
+
+
+        private ViewModelCommand sendDiffImgCommand;
+        public ViewModelCommand SendDiffImgCommand
+        {
+            get
+            {
+                if (this.sendDiffImgCommand == null)
+                {
+                    this.sendDiffImgCommand = new ViewModelCommand(this.sendDiffImg);
+                }
+                return this.sendDiffImgCommand;
+            }
+        }
+
+        private void sendDiffImg()
+        {
+            var diffImg = @"C:\Program Files\TheHive\DiffImg (x64)\diffimg.exe";
+            if (!File.Exists(diffImg)) return;
+
+            var arg = "\"" +  this.CompareResultListSelectedItem.BeforeFilePath
+                + "\" \""
+                + this.CompareResultListSelectedItem.AfterFilePath
+                + "\"";
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(diffImg, arg);
+            p.Start();
         }
 
         private ViewModelCommand compareCommand;
