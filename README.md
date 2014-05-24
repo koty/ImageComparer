@@ -4,6 +4,8 @@ ImageComparer
 
 利用するには、.NET Framework 4.0 が必要です。
 
+開発はVisual Studio Express 2013 for Desktop で行っています。
+
 ## 使い方
 
 * 上部のふたつのテキストボックスに改修前後の画像コピーパスを入力します。
