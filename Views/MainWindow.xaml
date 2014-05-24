@@ -46,24 +46,26 @@
         </ListView>
         <StackPanel Orientation="Horizontal">
             <ScrollViewer x:Name="sv1" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
-                <Grid Name="grid1" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
-                    <Grid.LayoutTransform>
+                <Canvas Name="canvas1" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
+                    <Canvas.LayoutTransform>
                         <TransformGroup>
                             <ScaleTransform x:Name="scaleTransform1"/>
                         </TransformGroup>
-                    </Grid.LayoutTransform>
-                    <Image x:Name="image1" Source="{Binding BeforeImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Grid>
+                    </Canvas.LayoutTransform>
+                    <Image MouseDown="image_MouseDown" MouseMove="image_MouseMove" MouseUp="image_MouseUp"
+                           x:Name="image1" Source="{Binding BeforeImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Canvas>
             </ScrollViewer>
             <ScrollViewer x:Name="sv2" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
-                <Grid Name="grid2" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
-                    <Grid.LayoutTransform>
+                <Canvas Name="canvas2" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
+                    <Canvas.LayoutTransform>
                         <TransformGroup>
                             <ScaleTransform x:Name="scaleTransform2"/>
                         </TransformGroup>
-                    </Grid.LayoutTransform>
-                    <Image x:Name="image2" Source="{Binding AfterImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </Grid>
+                    </Canvas.LayoutTransform>
+                    <Image MouseDown="image_MouseDown" MouseMove="image_MouseMove" MouseUp="image_MouseUp"
+                           x:Name="image2" Source="{Binding AfterImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Canvas>
             </ScrollViewer>
         </StackPanel>
     </StackPanel>
