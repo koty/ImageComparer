@@ -6,7 +6,8 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:ImageComparer.Views"
         xmlns:vm="clr-namespace:ImageComparer.ViewModels"
-        Title="MainWindow" Height="1000" Width="1820" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="1000" Width="1820"
+        WindowStartupLocation="CenterScreen">
     
     <Window.DataContext>
         <vm:MainWindowViewModel/>
