@@ -66,8 +66,6 @@ namespace ImageComparer.ViewModels
         public MainWindowViewModel()
         {
             this.CompareResultList = new ObservableCollection<ResultItem>();
-            this.AfterPath = @"c:\1";
-            this.BeforePath = @"c:\2";
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             { 
                 CreateTestData();
@@ -181,21 +179,21 @@ namespace ImageComparer.ViewModels
                 return;
             this.CompareResultList.Clear();
 
-            foreach (var beforeFilePath in Directory.EnumerateFiles(this.BeforePath, "*.png", SearchOption.AllDirectories))
+            foreach (var afterFilePath in Directory.EnumerateFiles(this.AfterPath, "*.png", SearchOption.AllDirectories))
             {
-                var afterFilePath = beforeFilePath.Replace(this.BeforePath, this.AfterPath);
-                if (File.Exists(afterFilePath))
+                var beforeFilePath = afterFilePath.Replace(this.AfterPath, this.BeforePath);
+                if (File.Exists(beforeFilePath))
                 {
-                    if (Md5Util.getMd5Hash(beforeFilePath)
-                        == Md5Util.getMd5Hash(afterFilePath))
+                    if (Md5Util.getMd5Hash(afterFilePath)
+                        == Md5Util.getMd5Hash(beforeFilePath))
                     {
                         continue;
                     }
-                    this.CompareResultList.Add(new ResultItem() { BeforeFilePath = beforeFilePath, AfterFilePath = afterFilePath });
+                    this.CompareResultList.Add(new ResultItem() { AfterFilePath = afterFilePath, BeforeFilePath = beforeFilePath });
                 }
                 else
                 {
-                    this.CompareResultList.Add(new ResultItem() { BeforeFilePath = beforeFilePath, AfterFilePath = "" });
+                    this.CompareResultList.Add(new ResultItem() { AfterFilePath = afterFilePath, BeforeFilePath = "" });
                 }
             }
         }

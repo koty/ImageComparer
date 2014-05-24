@@ -30,10 +30,12 @@
 
     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal" >
-            <TextBox Width="500" Text="{Binding BeforePath}" GotFocus="TextBox_GotFocus" />
-            <TextBox Width="500" Text="{Binding AfterPath}" GotFocus="TextBox_GotFocus" />
+            <Label Content="修正前dir" Foreground="Black" Margin="4" />
+            <TextBox Width="600" Text="{Binding BeforePath}" GotFocus="TextBox_GotFocus" />
+            <Label Content="修正後dir" Foreground="Black" Margin="4" />
+            <TextBox Width="600" Text="{Binding AfterPath}" GotFocus="TextBox_GotFocus" />
             <Button Content="比較" Width="100" Command="{Binding CompareCommand}"/>
-            <Slider x:Name="slider1" Width="700" ValueChanged="slider1_ValueChanged" Minimum="1" Maximum="5" />
+            <Slider x:Name="slider1" Width="500" ValueChanged="slider1_ValueChanged" Minimum="1" Maximum="5" />
         </StackPanel>
         <ListView ItemsSource="{Binding CompareResultList}" SelectedItem="{Binding CompareResultListSelectedItem}"
                   Height="200">
