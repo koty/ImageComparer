@@ -178,5 +178,10 @@ namespace ImageComparer.Views
 
             e.Handled = true;
         }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as TextBox).SelectAll();
+        }
     }
 }
