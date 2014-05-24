@@ -11,5 +11,5 @@ ImageComparer
 * 右上のスライダーで画像を拡大できます。
 * マウスホイールでも画像拡大できます。
 * マウスのドラッグで画像を動かせます。
-* 画像比較ツール（http://sourceforge.net/projects/diffimg/）がインストールされていれば、一覧の行右クリックで送ることができます
+* 画像比較ツール（ http://sourceforge.net/projects/diffimg/ ）がインストールされていれば、一覧の行右クリックで送ることができます
 
