@@ -156,5 +156,27 @@ namespace ImageComparer.Views
             _isDragging = false;
             this.Cursor = Cursors.Arrow;
         }
+
+        private void sv_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var sv = sender as ScrollViewer;
+            if (sv == null) return;
+
+            var canvas = sv.Content as Canvas;
+            if (canvas == null) return;
+
+            lastMousePositionOnTarget = Mouse.GetPosition(canvas);
+
+            if (e.Delta > 0)
+            {
+                slider1.Value += 0.2;
+            }
+            if (e.Delta < 0)
+            {
+                slider1.Value -= 0.2;
+            }
+
+            e.Handled = true;
+        }
     }
 }

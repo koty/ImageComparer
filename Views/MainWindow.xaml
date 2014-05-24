@@ -33,7 +33,7 @@
             <TextBox Width="500" Text="{Binding BeforePath}" />
             <TextBox Width="500" Text="{Binding AfterPath}" />
             <Button Content="比較" Width="100" Command="{Binding CompareCommand}"/>
-            <Slider x:Name="slider1" Width="700" ValueChanged="slider1_ValueChanged" Minimum="1" />
+            <Slider x:Name="slider1" Width="700" ValueChanged="slider1_ValueChanged" Minimum="1" Maximum="5" />
         </StackPanel>
         <ListView ItemsSource="{Binding CompareResultList}" SelectedItem="{Binding CompareResultListSelectedItem}"
                   Height="200">
@@ -45,7 +45,8 @@
             </ListView.View>
         </ListView>
         <StackPanel Orientation="Horizontal">
-            <ScrollViewer x:Name="sv1" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
+            <ScrollViewer x:Name="sv1" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto"
+                          ScrollChanged="ScrollViewer_ScrollChanged" PreviewMouseWheel="sv_PreviewMouseWheel">
                 <Canvas Name="canvas1" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
                     <Canvas.LayoutTransform>
                         <TransformGroup>
@@ -56,7 +57,8 @@
                            x:Name="image1" Source="{Binding BeforeImage}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Canvas>
             </ScrollViewer>
-            <ScrollViewer x:Name="sv2" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
+            <ScrollViewer x:Name="sv2" Width="900" Height="700" CanContentScroll="True" HorizontalScrollBarVisibility="Auto"
+                          ScrollChanged="ScrollViewer_ScrollChanged" PreviewMouseWheel="sv_PreviewMouseWheel">
                 <Canvas Name="canvas2" Width="900" Height="700" RenderTransformOrigin="0.5,0.5">
                     <Canvas.LayoutTransform>
                         <TransformGroup>
